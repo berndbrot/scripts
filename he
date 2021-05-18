@@ -45,7 +45,7 @@ BEGIN {
     $inside_option = 0;
 }
 if (!$inside_option) {
-    if (/^(\s*)\Q$option\E\b/p) {
+    if (/^(\s*)(?:--[a-z]+,\s*)?\Q$option\E(?:, -\w)?$/p) {
         # start of this option
         $option_indentation = $1;
         $inside_option = 1;
